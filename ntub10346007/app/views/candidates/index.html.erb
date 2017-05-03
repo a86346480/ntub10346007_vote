@@ -1,0 +1,31 @@
+<h1>Candidate List</h1>
+<%= link_to "add candidate", new_candidate_path, class: "btn btn-success" %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td></td>
+      <td>名稱</td>
+      <td>得票數</td>
+      <td>年齡</td>
+      <td>politics</td>
+    </tr>
+  </thead>
+     
+
+
+  <tbody>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= link_to "Vote!", votes_candidate_path(candidate), class: "btn btn-xs btn-danger", method: "POST", data: { confirm: 'Vote this one?!'} %></td>
+      <td><%= link_to display_name(candidate), candidate %></td>
+      <td><%= candidate.log.count %></td>
+      <td><%= candidate.age %></td>
+      <td><%= candidate.politics %></td>
+      <td>
+        <%= link_to "edit", edit_candidate_path(candidate), class: "btn btn-success btn-xs" %>
+        <%= link_to "delete", candidate, method: "delete", data: {confirm: 'delete?!'}, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>  
