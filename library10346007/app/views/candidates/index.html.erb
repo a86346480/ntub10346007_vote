@@ -18,6 +18,10 @@
         <td><%= candidate.introduction %></td>
         <td><%= candidate.author %></td>
         <td><%= candidate.price %></td>
+        <td>
+          <%= link_to "編輯", edit_candidate_path(candidate) %>
+          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
