@@ -14,7 +14,7 @@
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= candidate.title %></td>
+        <td><%= link_to candidate.title, edit_candidate_path(candidate)  %></td>
         <td><%= candidate.introduction %></td>
         <td><%= candidate.author %></td>
         <td><%= candidate.price %></td>
