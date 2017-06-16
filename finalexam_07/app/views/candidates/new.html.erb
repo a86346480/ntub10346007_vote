@@ -1,0 +1,18 @@
+<h1>新增學生</h1>
+
+  <%= form_for(@candidate) do |f| %>
+    <%= f.label :name, "姓名" %>
+    <%= f.text_field :name %> <br />
+
+    <%= f.label :stu_number, "學號" %>
+    <%= f.text_field :stu_number %> <br />
+
+    <%= f.label :score, "分數" %>
+    <%= f.text_field :score %> <br />
+
+
+    <%= f.submit %>
+  <% end %>
+
+  <br />
+  <%= link_to '回成績列表', candidates_path %>

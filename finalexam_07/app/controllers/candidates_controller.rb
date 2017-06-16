@@ -3,4 +3,8 @@ class CandidatesController < ApplicationController
     @candidates = Candidate.all
   end
   
+  def new
+      @candidate = Candidate.new
+  end
+  
 end
