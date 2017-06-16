@@ -1,0 +1,24 @@
+<h1>成績列表</h1>
+
+<%= link_to "新增學生", new_candidate_path %>
+
+<br>分數級別說明：90分以上S / 80 ~ 89：A 級/ 70 ~ 79：B級 / 60 ~ 69：C級 / 未滿60：D級</br>
+
+<table calss="table">
+  <thead>
+    <tr>
+    <td>姓名</td>
+    <td>學號</td>
+    <td>分數</td>
+    <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= candidate.name %></td>
+      <td><%= candidate.stu_number %></td>
+      <td><%= candidate.score %></td>
+      </tr>
+    <% end %>
+</table>
