@@ -18,7 +18,14 @@
     <tr>
       <td><%= candidate.name %></td>
       <td><%= candidate.stu_number %></td>
-      <td><%= candidate.score %></td>
+      <td>
+        <script type="text/JavaScript">
+          if ( <%= candidate.score %> > 0 ) {
+            document.getElementById('grade').value="S級";
+          }
+        </script>
+        <%= candidate.score %>
+      </td>
       <td>
         <%= link_to "編輯", edit_candidate_path(candidate) %>
         <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
@@ -26,3 +33,4 @@
       </tr>
     <% end %>
 </table>
+

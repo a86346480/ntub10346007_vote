@@ -29,6 +29,18 @@ class CandidatesController < ApplicationController
     end
   end
   
+  def destroy
+    @candidate = Candidate.find_by(id: params[:id])
+    @candidate.destroy if @candidate
+    redirect_to candidates_path, notice: "學生資料已刪除!"
+  end
+  
+  def score_calculation
+    if candidate.score >= 0
+      grade = "S級"
+    end
+  end
+  
   private
     def candidate_params
       params.require(:candidate).permit(:name, :stu_number, :score)

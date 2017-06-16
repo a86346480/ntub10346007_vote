@@ -4,6 +4,7 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
       t.text :name
       t.text :stu_number
       t.integer :score
+      t.text :grade
 
       t.timestamps
     end
