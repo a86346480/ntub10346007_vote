@@ -1,36 +1,52 @@
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">國立超強台北大學</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">成績單</a></li>
+            </ul>
+          </div>
+        </div>
+</nav>
+
 <h1>成績列表</h1>
 
-<%= link_to "新增學生", new_candidate_path %>
-
+<button type="button" class="btn btn-lg btn-success"><%= link_to "新增學生", new_candidate_path %></button>
+<div class="page-header">
+</div>
 <br>分數級別說明：90分以上S / 80 ~ 89：A 級/ 70 ~ 79：B級 / 60 ~ 69：C級 / 未滿60：D級</br>
-
-<table calss="table">
-  <thead>
-    <tr>
-    <td>姓名</td>
-    <td>學號</td>
-    <td>分數</td>
-    <td>處理</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @candidates.each do |candidate| %>
-    <tr>
-      <td><%= candidate.name %></td>
-      <td><%= candidate.stu_number %></td>
-      <td>
-        <script type="text/JavaScript">
-          if ( <%= candidate.score %> > 0 ) {
-            document.getElementById('grade').value="S級";
-          }
-        </script>
-        <%= candidate.score %>
-      </td>
-      <td>
-        <%= link_to "編輯", edit_candidate_path(candidate) %>
-        <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
-      </td>
-      </tr>
-    <% end %>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>學號</th>
+          <th>分數</th>
+          <th>處理</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.name %></td>
+          <td><%= candidate.stu_number %></td>
+          <td><%= candidate.score %></td>
+          <td>
+            <button type="button" class="btn btn-xs btn-success">
+              <%= link_to "編輯", edit_candidate_path(candidate) %>
+            </button>
+            <button type="button" class="btn btn-xs btn-danger">
+              <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+  
+  
 
